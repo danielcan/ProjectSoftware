@@ -1,4 +1,8 @@
-﻿Imports System.Data.SqlClient
+﻿'Class connection to data base. 
+'Create for Daniel Canales 
+
+
+Imports System.Data.SqlClient
 Public Class Connection
 
 

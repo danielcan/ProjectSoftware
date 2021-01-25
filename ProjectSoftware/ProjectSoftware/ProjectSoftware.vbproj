@@ -102,17 +102,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Connection.vb" />
-    <Compile Include="Form1.vb">
+    <Compile Include="Entidad\eCaja.vb" />
+    <Compile Include="Entidad\eProveedor.vb" />
+    <Compile Include="Formularios\formCajaIn.Designer.vb">
+      <DependentUpon>formCajaIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formCajaIn.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Formularios\formFactura.Designer.vb">
+      <DependentUpon>formFactura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\formFactura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -126,6 +140,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\formCajaIn.resx">
+      <DependentUpon>formCajaIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\formFactura.resx">
+      <DependentUpon>formFactura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -159,8 +182,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CrystalReportes\" />
-    <Folder Include="Entidad\" />
-    <Folder Include="Formularios\" />
     <Folder Include="Imagenes\" />
     <Folder Include="VReportes\" />
   </ItemGroup>
