@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Connection.vb" />
+    <Compile Include="Datos\fCaja.vb" />
     <Compile Include="Entidad\eCaja.vb" />
     <Compile Include="Entidad\eProveedor.vb" />
     <Compile Include="Formularios\formCajaIn.Designer.vb">
