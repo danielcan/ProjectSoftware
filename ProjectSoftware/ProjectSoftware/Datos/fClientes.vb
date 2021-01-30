@@ -1,5 +1,7 @@
 ﻿Imports System.Data.SqlClient
-Public Class fCaja
+
+
+Public Class fClientes
 
     Inherits Connection
     Dim cmd As New SqlCommand
@@ -7,7 +9,7 @@ Public Class fCaja
     Public Function mostrar() As DataTable
         Try
             conexiondb()
-            cmd = New SqlCommand("tbl_mcaja")
+            cmd = New SqlCommand("tbl_mclientes")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then
@@ -26,18 +28,18 @@ Public Class fCaja
         End Try
     End Function
 
-    Public Function insertar(dts As eCaja) As Boolean
+    Public Function insertar(dts As eClientes) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_icaja")
+            cmd = New SqlCommand("sp_iclientes")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@CliCodigo", dts.gCliCodigo)
+            cmd.Parameters.AddWithValue("@CliIdentidad", dts.gCliIdentidad)
+            cmd.Parameters.AddWithValue("@CliNombreCompleto", dts.gCliNombreCompleto)
+            cmd.Parameters.AddWithValue("@CliTelefono", dts.gCliTelefono)
+            cmd.Parameters.AddWithValue("@CliCorreo", dts.gCliCorreo)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -52,18 +54,18 @@ Public Class fCaja
 
     End Function
 
-    Public Function editar(dts As eCaja) As Boolean
+    Public Function editar(dts As eClientes) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_ucaja")
+            cmd = New SqlCommand("sp_uclientes")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@CliCodigo", dts.gCliCodigo)
+            cmd.Parameters.AddWithValue("@CliIdentidad", dts.gCliIdentidad)
+            cmd.Parameters.AddWithValue("@CliNombreCompleto", dts.gCliNombreCompleto)
+            cmd.Parameters.AddWithValue("@CliTelefono", dts.gCliTelefono)
+            cmd.Parameters.AddWithValue("@CliCorreo", dts.gCliCorreo)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -78,14 +80,14 @@ Public Class fCaja
 
     End Function
 
-    Public Function eliminar(dts As eCaja) As Boolean
+    Public Function eliminar(dts As eClientes) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_dcaja")
+            cmd = New SqlCommand("sp_dclientes")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.Add("@CaCodigo", SqlDbType.NVarChar, 50).Value = dts.gCaCodigo
+            cmd.Parameters.Add("@CliCodigo", SqlDbType.NVarChar, 50).Value = dts.gCliCodigo
             If cmd.ExecuteNonQuery Then
                 Return True
             Else

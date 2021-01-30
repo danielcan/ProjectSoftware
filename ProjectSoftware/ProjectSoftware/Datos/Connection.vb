@@ -6,12 +6,12 @@ Imports System.Data.SqlClient
 Public Class Connection
 
 
-	Protected connecti As New SqlConnection
+	Protected cnn As New SqlConnection
 
 	Protected Function conexiondb() As Boolean
 		Try
-			connecti = New SqlConnection("Data Source=DESKTOP-OQV1GKC\LOCALHOST;initial catalog=DB_Juzgado;integrated security=True")
-			connecti.Open()
+			cnn = New SqlConnection("Data Source=DESKTOP-P6B53T5\LOCALHOST;initial catalog=electronicaHN;integrated security=True")
+			cnn.Open()
 			Return True
 		Catch ex As Exception
 			MsgBox(ex.Message)
@@ -21,8 +21,8 @@ Public Class Connection
 
 	Public Function desconecciondb() As Boolean
 		Try
-			If connecti.State = ConnectionState.Open Then
-				connecti.Close()
+			If cnn.State = ConnectionState.Open Then
+				cnn.Close()
 				Return True
 			Else
 				Return False

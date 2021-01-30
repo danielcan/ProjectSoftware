@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
-Public Class fCaja
+
+Public Class fProveedor
 
     Inherits Connection
     Dim cmd As New SqlCommand
@@ -7,7 +8,7 @@ Public Class fCaja
     Public Function mostrar() As DataTable
         Try
             conexiondb()
-            cmd = New SqlCommand("tbl_mcaja")
+            cmd = New SqlCommand("tbl_mproveedores")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then
@@ -26,18 +27,72 @@ Public Class fCaja
         End Try
     End Function
 
-    Public Function insertar(dts As eCaja) As Boolean
+    Public Function insertar(dts As eProveedor) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_icaja")
+            cmd = New SqlCommand("sp_iproveedores")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@ProCodigo", dts.gProCodigo)
+            cmd.Parameters.AddWithValue("@ProIdentidad", dts.gProIdentidad)
+            cmd.Parameters.AddWithValue("@ProNombre", dts.gProNombre)
+            cmd.Parameters.AddWithValue("@ProTelefono", dts.gProTelefono)
+            cmd.Parameters.AddWithValue("@ProCelular", dts.gProCelular)
+            cmd.Parameters.AddWithValue("@ProCorreo", dts.gProCorreo)
+            If cmd.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            desconecciondb()
+        End Try
+
+    End Function
+
+    Public Function editar(dts As eProveedor) As Boolean
+
+        Try
+            conexiondb()
+
+            cmd = New SqlCommand("sp_uproveedores")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = cnn
+            cmd.Parameters.AddWithValue("@ProCodigo", dts.gProCodigo)
+            cmd.Parameters.AddWithValue("@ProIdentidad", dts.gProIdentidad)
+            cmd.Parameters.AddWithValue("@ProNombre", dts.gProNombre)
+            cmd.Parameters.AddWithValue("@ProTelefono", dts.gProTelefono)
+            cmd.Parameters.AddWithValue("@ProCelular", dts.gProCelular)
+            cmd.Parameters.AddWithValue("@ProCorreo", dts.gProCorreo)
+            If cmd.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+
+        Finally
+            desconecciondb()
+
+        End Try
+
+    End Function
+
+    Public Function eliminar(dts As eProveedor) As Boolean
+        Try
+            conexiondb()
+            cmd = New SqlCommand("sp_dproveedores")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = cnn
+            cmd.Parameters.Add("@ProCodigo", SqlDbType.NVarChar, 50).Value = dts.gProCodigo
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -52,52 +107,5 @@ Public Class fCaja
 
     End Function
 
-    Public Function editar(dts As eCaja) As Boolean
-
-        Try
-            conexiondb()
-            cmd = New SqlCommand("sp_ucaja")
-            cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
-            If cmd.ExecuteNonQuery Then
-                Return True
-            Else
-                Return False
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return False
-        Finally
-            desconecciondb()
-        End Try
-
-    End Function
-
-    Public Function eliminar(dts As eCaja) As Boolean
-
-        Try
-            conexiondb()
-            cmd = New SqlCommand("sp_dcaja")
-            cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
-            cmd.Parameters.Add("@CaCodigo", SqlDbType.NVarChar, 50).Value = dts.gCaCodigo
-            If cmd.ExecuteNonQuery Then
-                Return True
-            Else
-                Return False
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return False
-        Finally
-            desconecciondb()
-        End Try
-
-    End Function
 
 End Class

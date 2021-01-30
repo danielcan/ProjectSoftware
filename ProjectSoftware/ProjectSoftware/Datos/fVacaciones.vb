@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Public Class fCaja
+Public Class fVacaciones
 
     Inherits Connection
     Dim cmd As New SqlCommand
@@ -7,7 +7,7 @@ Public Class fCaja
     Public Function mostrar() As DataTable
         Try
             conexiondb()
-            cmd = New SqlCommand("tbl_mcaja")
+            cmd = New SqlCommand("tbl_mvacaciones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then
@@ -26,18 +26,18 @@ Public Class fCaja
         End Try
     End Function
 
-    Public Function insertar(dts As eCaja) As Boolean
+    Public Function insertar(dts As eVacaciones) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_icaja")
+            cmd = New SqlCommand("sp_ivacaciones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@VacCodigo", dts.gVacCodigo)
+            cmd.Parameters.AddWithValue("@VacDiasTomados", dts.gVacDiasTomados)
+            cmd.Parameters.AddWithValue("@VacDia", dts.gVacDia)
+            cmd.Parameters.AddWithValue("@VacAnio", dts.gVacAnio)
+            cmd.Parameters.AddWithValue("@EmpCodigo", dts.gEmpCodigo)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -52,18 +52,18 @@ Public Class fCaja
 
     End Function
 
-    Public Function editar(dts As eCaja) As Boolean
+    Public Function editar(dts As eVacaciones) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_ucaja")
+            cmd = New SqlCommand("sp_ivacaciones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@VacCodigo", dts.gVacCodigo)
+            cmd.Parameters.AddWithValue("@VacDiasTomados", dts.gVacDiasTomados)
+            cmd.Parameters.AddWithValue("@VacDia", dts.gVacDia)
+            cmd.Parameters.AddWithValue("@VacAnio", dts.gVacAnio)
+            cmd.Parameters.AddWithValue("@EmpCodigo", dts.gEmpCodigo)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -78,14 +78,14 @@ Public Class fCaja
 
     End Function
 
-    Public Function eliminar(dts As eCaja) As Boolean
+    Public Function eliminar(dts As eVacaciones) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_dcaja")
+            cmd = New SqlCommand("sp_dvacaciones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.Add("@CaCodigo", SqlDbType.NVarChar, 50).Value = dts.gCaCodigo
+            cmd.Parameters.Add("@VacCodigo", SqlDbType.NVarChar, 50).Value = dts.gVacCodigo
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -99,5 +99,6 @@ Public Class fCaja
         End Try
 
     End Function
+
 
 End Class

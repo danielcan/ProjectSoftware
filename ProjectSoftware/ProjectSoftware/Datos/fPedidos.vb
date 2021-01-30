@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Public Class fCaja
+Public Class fPedidos
 
     Inherits Connection
     Dim cmd As New SqlCommand
@@ -7,7 +7,7 @@ Public Class fCaja
     Public Function mostrar() As DataTable
         Try
             conexiondb()
-            cmd = New SqlCommand("tbl_mcaja")
+            cmd = New SqlCommand("tbl_mpedido")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then
@@ -26,23 +26,23 @@ Public Class fCaja
         End Try
     End Function
 
-    Public Function insertar(dts As eCaja) As Boolean
+    Public Function insertar(dts As ePedidos) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_icaja")
+            cmd = New SqlCommand("sp_ipedido")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@PeCodigo", dts.gPeCodigo)
+            cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
+            cmd.Parameters.AddWithValue("@PeFecha", dts.gPeFecha)
+            cmd.Parameters.AddWithValue("@PeDescripcion", dts.gPeDescripcion)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
                 Return False
             End If
+
         Catch ex As Exception
             MsgBox(ex.Message)
             Return False
@@ -52,40 +52,42 @@ Public Class fCaja
 
     End Function
 
-    Public Function editar(dts As eCaja) As Boolean
+    Public Function editar(dts As ePedidos) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_ucaja")
+
+            cmd = New SqlCommand("sp_upedido")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@PeCodigo", dts.gPeCodigo)
+            cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
+            cmd.Parameters.AddWithValue("@PeFecha", dts.gPeFecha)
+            cmd.Parameters.AddWithValue("@PeDescripcion", dts.gPeDescripcion)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
                 Return False
             End If
+
         Catch ex As Exception
             MsgBox(ex.Message)
             Return False
+
         Finally
             desconecciondb()
+
         End Try
 
     End Function
 
-    Public Function eliminar(dts As eCaja) As Boolean
-
+    Public Function eliminar(dts As ePedidos) As Boolean
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_dcaja")
+            cmd = New SqlCommand("sp_dpedido")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.Add("@CaCodigo", SqlDbType.NVarChar, 50).Value = dts.gCaCodigo
+            cmd.Parameters.Add("@PeCodigo", SqlDbType.NVarChar, 50).Value = dts.gPeCodigo
             If cmd.ExecuteNonQuery Then
                 Return True
             Else

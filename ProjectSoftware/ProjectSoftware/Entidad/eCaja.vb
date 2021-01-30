@@ -7,7 +7,7 @@
     Dim CaDescripcion As String
 
 
-    Public Property pCaCodigo
+    Public Property gCaCodigo
         Get
             Return CaCodigo
         End Get
@@ -17,7 +17,7 @@
     End Property
 
 
-    Public Property pCaApertura
+    Public Property gCaApertura
         Get
             Return CaApertura
         End Get
@@ -27,7 +27,7 @@
     End Property
 
 
-    Public Property pCaCierre
+    Public Property gCaCierre
         Get
             Return CaCierre
         End Get
@@ -37,7 +37,7 @@
     End Property
 
 
-    Public Property pCafecha
+    Public Property gCafecha
         Get
             Return Cafecha
         End Get
@@ -46,7 +46,7 @@
         End Set
     End Property
 
-    Public Property pCaDescripcion
+    Public Property gCaDescripcion
         Get
             Return CaDescripcion
         End Get
@@ -60,11 +60,11 @@
 
     Public Sub New(CaCodigo As Integer, CaApertura As Integer, CaCierre As Integer,
     Cafecha As Date, CaDescripcion As String)
-        pCaCodigo = CaCodigo
-        pCaApertura = CaApertura
-        pCaCierre = CaCierre
-        pCafecha = Cafecha
-        pCaDescripcion = CaDescripcion
+        gCaCodigo = CaCodigo
+        gCaApertura = CaApertura
+        gCaCierre = CaCierre
+        gCafecha = Cafecha
+        gCaDescripcion = CaDescripcion
     End Sub
 
 End Class

@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
-Public Class fCaja
+
+Public Class fRepuesto
 
     Inherits Connection
     Dim cmd As New SqlCommand
@@ -7,7 +8,7 @@ Public Class fCaja
     Public Function mostrar() As DataTable
         Try
             conexiondb()
-            cmd = New SqlCommand("tbl_mcaja")
+            cmd = New SqlCommand("tbl_mrepuesto")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then
@@ -26,18 +27,18 @@ Public Class fCaja
         End Try
     End Function
 
-    Public Function insertar(dts As eCaja) As Boolean
+    Public Function insertar(dts As eRupuesto) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_icaja")
+            cmd = New SqlCommand("sp_irepuesto")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@BoCodigo", dts.gReCodigo)
+            cmd.Parameters.AddWithValue("@BoPorCentaje", dts.gRePrecio)
+            cmd.Parameters.AddWithValue("@OrCodigo", dts.gReMarca)
+            cmd.Parameters.AddWithValue("@BoFecha", dts.gReTraido)
+            cmd.Parameters.AddWithValue("@BoFecha", dts.gReDescripcion)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -52,18 +53,18 @@ Public Class fCaja
 
     End Function
 
-    Public Function editar(dts As eCaja) As Boolean
+    Public Function editar(dts As eRupuesto) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_ucaja")
+            cmd = New SqlCommand("sp_urepuesto")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@BoCodigo", dts.gReCodigo)
+            cmd.Parameters.AddWithValue("@BoPorCentaje", dts.gRePrecio)
+            cmd.Parameters.AddWithValue("@OrCodigo", dts.gReMarca)
+            cmd.Parameters.AddWithValue("@BoFecha", dts.gReTraido)
+            cmd.Parameters.AddWithValue("@BoFecha", dts.gReDescripcion)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -78,14 +79,14 @@ Public Class fCaja
 
     End Function
 
-    Public Function eliminar(dts As eCaja) As Boolean
+    Public Function eliminar(dts As eRupuesto) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_dcaja")
+            cmd = New SqlCommand("sp_drepuesto")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.Add("@CaCodigo", SqlDbType.NVarChar, 50).Value = dts.gCaCodigo
+            cmd.Parameters.Add("@ReCodigo", SqlDbType.NVarChar, 50).Value = dts.gReCodigo
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -99,5 +100,4 @@ Public Class fCaja
         End Try
 
     End Function
-
 End Class

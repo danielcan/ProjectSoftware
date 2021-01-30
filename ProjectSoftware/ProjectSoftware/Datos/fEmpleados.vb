@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
-Public Class fCaja
+
+Public Class fEmpleados
 
     Inherits Connection
     Dim cmd As New SqlCommand
@@ -7,7 +8,7 @@ Public Class fCaja
     Public Function mostrar() As DataTable
         Try
             conexiondb()
-            cmd = New SqlCommand("tbl_mcaja")
+            cmd = New SqlCommand("tbl_mempleados")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then
@@ -26,18 +27,23 @@ Public Class fCaja
         End Try
     End Function
 
-    Public Function insertar(dts As eCaja) As Boolean
+    Public Function insertar(dts As eEmpleados) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_icaja")
+            cmd = New SqlCommand("sp_iempleados")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@EmpCodigo", dts.gEmpCodigo)
+            cmd.Parameters.AddWithValue("@TurCodigo", dts.gTurCodigo)
+            cmd.Parameters.AddWithValue("@Orcodigo", dts.gOrcodigo)
+            cmd.Parameters.AddWithValue("@EmpNombreCompleto", dts.gEmpNombreCompleto)
+            cmd.Parameters.AddWithValue("@EmpTelefono", dts.gEmpTelefono)
+            cmd.Parameters.AddWithValue("@EmpCargo", dts.gEmpCargo)
+            cmd.Parameters.AddWithValue("@EmpCorreo", dts.gEmpCorreo)
+            cmd.Parameters.AddWithValue("@EmpCelular", dts.gEmpCelular)
+            cmd.Parameters.AddWithValue("@EmSueldo", dts.gEmSueldo)
+            cmd.Parameters.AddWithValue("@EmpFechaIngreso", dts.gEmpFechaIngreso)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -52,18 +58,23 @@ Public Class fCaja
 
     End Function
 
-    Public Function editar(dts As eCaja) As Boolean
+    Public Function editar(dts As eEmpleados) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_ucaja")
+            cmd = New SqlCommand("sp_uempleados")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@EmpCodigo", dts.gEmpCodigo)
+            cmd.Parameters.AddWithValue("@TurCodigo", dts.gTurCodigo)
+            cmd.Parameters.AddWithValue("@Orcodigo", dts.gOrcodigo)
+            cmd.Parameters.AddWithValue("@EmpNombreCompleto", dts.gEmpNombreCompleto)
+            cmd.Parameters.AddWithValue("@EmpTelefono", dts.gEmpTelefono)
+            cmd.Parameters.AddWithValue("@EmpCargo", dts.gEmpCargo)
+            cmd.Parameters.AddWithValue("@EmpCorreo", dts.gEmpCorreo)
+            cmd.Parameters.AddWithValue("@EmpCelular", dts.gEmpCelular)
+            cmd.Parameters.AddWithValue("@EmSueldo", dts.gEmSueldo)
+            cmd.Parameters.AddWithValue("@EmpFechaIngreso", dts.gEmpFechaIngreso)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -78,14 +89,14 @@ Public Class fCaja
 
     End Function
 
-    Public Function eliminar(dts As eCaja) As Boolean
+    Public Function eliminar(dts As eEmpleados) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_dcaja")
+            cmd = New SqlCommand("sp_dempleados")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.Add("@CaCodigo", SqlDbType.NVarChar, 50).Value = dts.gCaCodigo
+            cmd.Parameters.Add("@EmpCodigo", SqlDbType.NVarChar, 50).Value = dts.gEmpCodigo
             If cmd.ExecuteNonQuery Then
                 Return True
             Else

@@ -1,13 +1,13 @@
 ﻿Imports System.Data.SqlClient
-Public Class fCaja
 
+Public Class fRepuxProve
     Inherits Connection
     Dim cmd As New SqlCommand
 
     Public Function mostrar() As DataTable
         Try
             conexiondb()
-            cmd = New SqlCommand("tbl_mcaja")
+            cmd = New SqlCommand("tbl_mcatalogo")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then
@@ -26,18 +26,17 @@ Public Class fCaja
         End Try
     End Function
 
-    Public Function insertar(dts As eCaja) As Boolean
+    Public Function insertar(dts As eRepuxProve) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_icaja")
+            cmd = New SqlCommand("sp_irepuxprove")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@CatCodigo", dts.gCatCodigo)
+            cmd.Parameters.AddWithValue("@CatCantidad", dts.gReCodigo)
+            cmd.Parameters.AddWithValue("@CatFecha", dts.gProCodigo)
+            cmd.Parameters.AddWithValue("@CatCategorias", dts.gFechaCompra)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -52,18 +51,17 @@ Public Class fCaja
 
     End Function
 
-    Public Function editar(dts As eCaja) As Boolean
+    Public Function editar(dts As eRepuxProve) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_ucaja")
+            cmd = New SqlCommand("sp_urepuxprove")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
-            cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
-            cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
-            cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
-            cmd.Parameters.AddWithValue("@CaDescripcion", dts.gCaDescripcion)
+            cmd.Parameters.AddWithValue("@CatCodigo", dts.gCatCodigo)
+            cmd.Parameters.AddWithValue("@CatCantidad", dts.gReCodigo)
+            cmd.Parameters.AddWithValue("@CatFecha", dts.gProCodigo)
+            cmd.Parameters.AddWithValue("@CatCategorias", dts.gFechaCompra)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -78,14 +76,14 @@ Public Class fCaja
 
     End Function
 
-    Public Function eliminar(dts As eCaja) As Boolean
+    Public Function eliminar(dts As eRepuxProve) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_dcaja")
+            cmd = New SqlCommand("sp_drepuxprove")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.Add("@CaCodigo", SqlDbType.NVarChar, 50).Value = dts.gCaCodigo
+            cmd.Parameters.Add("@CatCodigo", SqlDbType.NVarChar, 50).Value = dts.gCatCodigo
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -99,5 +97,4 @@ Public Class fCaja
         End Try
 
     End Function
-
 End Class
