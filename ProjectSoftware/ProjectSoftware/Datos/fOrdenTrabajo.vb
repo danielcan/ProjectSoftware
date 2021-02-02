@@ -36,7 +36,7 @@ Public Class fOrdenTrabajo
             cmd.Connection = cnn
             cmd.Parameters.AddWithValue("@CliCodigo", dts.gCliCodigo)
             cmd.Parameters.AddWithValue("@ServCodigo", dts.gServCodigo)
-            cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
+
             cmd.Parameters.AddWithValue("@Orfecha", dts.gOrfecha)
             cmd.Parameters.AddWithValue("@RecepcionEquipo", dts.gRecepcionEquipo)
             If cmd.ExecuteNonQuery Then
@@ -62,7 +62,7 @@ Public Class fOrdenTrabajo
             cmd.Connection = cnn
             cmd.Parameters.AddWithValue("@CliCodigo", dts.gCliCodigo)
             cmd.Parameters.AddWithValue("@ServCodigo", dts.gServCodigo)
-            cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
+
             cmd.Parameters.AddWithValue("@Orfecha", dts.gOrfecha)
             cmd.Parameters.AddWithValue("@RecepcionEquipo", dts.gRecepcionEquipo)
             If cmd.ExecuteNonQuery Then

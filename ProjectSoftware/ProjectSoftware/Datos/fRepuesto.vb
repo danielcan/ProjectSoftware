@@ -27,18 +27,18 @@ Public Class fRepuesto
         End Try
     End Function
 
-    Public Function insertar(dts As eRupuesto) As Boolean
+    Public Function insertar(dts As eRepuesto) As Boolean
 
         Try
             conexiondb()
             cmd = New SqlCommand("sp_irepuesto")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@BoCodigo", dts.gReCodigo)
-            cmd.Parameters.AddWithValue("@BoPorCentaje", dts.gRePrecio)
-            cmd.Parameters.AddWithValue("@OrCodigo", dts.gReMarca)
-            cmd.Parameters.AddWithValue("@BoFecha", dts.gReTraido)
-            cmd.Parameters.AddWithValue("@BoFecha", dts.gReDescripcion)
+
+            cmd.Parameters.AddWithValue("@RePrecio", dts.gRePrecio)
+            cmd.Parameters.AddWithValue("@ReMarca", dts.gReMarca)
+            cmd.Parameters.AddWithValue("@ReTraido", dts.gReTraido)
+            cmd.Parameters.AddWithValue("@ReDescripcion", dts.gReDescripcion)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -53,18 +53,17 @@ Public Class fRepuesto
 
     End Function
 
-    Public Function editar(dts As eRupuesto) As Boolean
+    Public Function editar(dts As eRepuesto) As Boolean
 
         Try
             conexiondb()
             cmd = New SqlCommand("sp_urepuesto")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@BoCodigo", dts.gReCodigo)
-            cmd.Parameters.AddWithValue("@BoPorCentaje", dts.gRePrecio)
-            cmd.Parameters.AddWithValue("@OrCodigo", dts.gReMarca)
-            cmd.Parameters.AddWithValue("@BoFecha", dts.gReTraido)
-            cmd.Parameters.AddWithValue("@BoFecha", dts.gReDescripcion)
+            cmd.Parameters.AddWithValue("@RePrecio", dts.gRePrecio)
+            cmd.Parameters.AddWithValue("@ReMarca", dts.gReMarca)
+            cmd.Parameters.AddWithValue("@ReTraido", dts.gReTraido)
+            cmd.Parameters.AddWithValue("@ReDescripcion", dts.gReDescripcion)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -79,7 +78,7 @@ Public Class fRepuesto
 
     End Function
 
-    Public Function eliminar(dts As eRupuesto) As Boolean
+    Public Function eliminar(dts As eRepuesto) As Boolean
 
         Try
             conexiondb()

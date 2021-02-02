@@ -33,7 +33,7 @@ Public Class fCaja
             cmd = New SqlCommand("sp_icaja")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
+
             cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
             cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
             cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)
@@ -59,7 +59,7 @@ Public Class fCaja
             cmd = New SqlCommand("sp_ucaja")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CaCodigo", dts.gCaCodigo)
+
             cmd.Parameters.AddWithValue("@CaApertura", dts.gCaApertura)
             cmd.Parameters.AddWithValue("@CaCierre", dts.gCaCierre)
             cmd.Parameters.AddWithValue("@Cafecha", dts.gCafecha)

@@ -35,7 +35,7 @@ Public Class fBono
             cmd = New SqlCommand("sp_ibono")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@BoCodigo", dts.gBoCodigo)
+
             cmd.Parameters.AddWithValue("@BoPorCentaje", dts.gBoPorCentaje)
             cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
             cmd.Parameters.AddWithValue("@BoFecha", dts.gBoFecha)
@@ -60,7 +60,7 @@ Public Class fBono
             cmd = New SqlCommand("sp_ubono")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@BoCodigo", dts.gBoCodigo)
+
             cmd.Parameters.AddWithValue("@BoPorCentaje", dts.gBoPorCentaje)
             cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
             cmd.Parameters.AddWithValue("@BoFecha", dts.gBoFecha)

@@ -26,14 +26,14 @@ Public Class fContrato
         End Try
     End Function
 
-    Public Function insertar(dts As eContratro) As Boolean
+    Public Function insertar(dts As eContrato) As Boolean
 
         Try
             conexiondb()
             cmd = New SqlCommand("sp_icontrato")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@ConCodigo", dts.gConCodigo)
+
             cmd.Parameters.AddWithValue("@Empcodigo", dts.gEmpcodigo)
             cmd.Parameters.AddWithValue("@ConFecha", dts.gConFecha)
             cmd.Parameters.AddWithValue("@ConDescripcion", dts.gConDescripcion)
@@ -51,14 +51,14 @@ Public Class fContrato
 
     End Function
 
-    Public Function editar(dts As eContratro) As Boolean
+    Public Function editar(dts As eContrato) As Boolean
 
         Try
             conexiondb()
             cmd = New SqlCommand("sp_ucontrato")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@ConCodigo", dts.gConCodigo)
+
             cmd.Parameters.AddWithValue("@Empcodigo", dts.gEmpcodigo)
             cmd.Parameters.AddWithValue("@ConFecha", dts.gConFecha)
             cmd.Parameters.AddWithValue("@ConDescripcion", dts.gConDescripcion)
@@ -76,7 +76,7 @@ Public Class fContrato
 
     End Function
 
-    Public Function eliminar(dts As eContratro) As Boolean
+    Public Function eliminar(dts As eContrato) As Boolean
 
         Try
             conexiondb()

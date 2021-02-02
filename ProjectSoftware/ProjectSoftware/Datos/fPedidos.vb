@@ -33,7 +33,7 @@ Public Class fPedidos
             cmd = New SqlCommand("sp_ipedido")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@PeCodigo", dts.gPeCodigo)
+
             cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
             cmd.Parameters.AddWithValue("@PeFecha", dts.gPeFecha)
             cmd.Parameters.AddWithValue("@PeDescripcion", dts.gPeDescripcion)
@@ -60,7 +60,7 @@ Public Class fPedidos
             cmd = New SqlCommand("sp_upedido")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@PeCodigo", dts.gPeCodigo)
+
             cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
             cmd.Parameters.AddWithValue("@PeFecha", dts.gPeFecha)
             cmd.Parameters.AddWithValue("@PeDescripcion", dts.gPeDescripcion)

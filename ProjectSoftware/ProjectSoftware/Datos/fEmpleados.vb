@@ -34,16 +34,17 @@ Public Class fEmpleados
             cmd = New SqlCommand("sp_iempleados")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@EmpCodigo", dts.gEmpCodigo)
-            cmd.Parameters.AddWithValue("@TurCodigo", dts.gTurCodigo)
-            cmd.Parameters.AddWithValue("@Orcodigo", dts.gOrcodigo)
-            cmd.Parameters.AddWithValue("@EmpNombreCompleto", dts.gEmpNombreCompleto)
+            cmd.Parameters.AddWithValue("@EmpNombre", dts.gEmpNombre)
+            cmd.Parameters.AddWithValue("@EmpApellido", dts.gEmpApellido)
             cmd.Parameters.AddWithValue("@EmpTelefono", dts.gEmpTelefono)
             cmd.Parameters.AddWithValue("@EmpCargo", dts.gEmpCargo)
+            cmd.Parameters.AddWithValue("@EmpDireccion", dts.gEmpDireccion)
             cmd.Parameters.AddWithValue("@EmpCorreo", dts.gEmpCorreo)
             cmd.Parameters.AddWithValue("@EmpCelular", dts.gEmpCelular)
-            cmd.Parameters.AddWithValue("@EmSueldo", dts.gEmSueldo)
+            cmd.Parameters.AddWithValue("@EmpSueldo", dts.gEmpSueldo)
             cmd.Parameters.AddWithValue("@EmpFechaIngreso", dts.gEmpFechaIngreso)
+            cmd.Parameters.AddWithValue("@TurCodigo", dts.gTurCodigo)
+            cmd.Parameters.AddWithValue("@Orcodigo", dts.gOrcodigo)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -65,16 +66,17 @@ Public Class fEmpleados
             cmd = New SqlCommand("sp_uempleados")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@EmpCodigo", dts.gEmpCodigo)
-            cmd.Parameters.AddWithValue("@TurCodigo", dts.gTurCodigo)
-            cmd.Parameters.AddWithValue("@Orcodigo", dts.gOrcodigo)
-            cmd.Parameters.AddWithValue("@EmpNombreCompleto", dts.gEmpNombreCompleto)
+            cmd.Parameters.AddWithValue("@EmpNombre", dts.gEmpNombre)
+            cmd.Parameters.AddWithValue("@EmpApellido", dts.gEmpApellido)
             cmd.Parameters.AddWithValue("@EmpTelefono", dts.gEmpTelefono)
             cmd.Parameters.AddWithValue("@EmpCargo", dts.gEmpCargo)
+            cmd.Parameters.AddWithValue("@EmpDireccion", dts.gEmpDireccion)
             cmd.Parameters.AddWithValue("@EmpCorreo", dts.gEmpCorreo)
             cmd.Parameters.AddWithValue("@EmpCelular", dts.gEmpCelular)
-            cmd.Parameters.AddWithValue("@EmSueldo", dts.gEmSueldo)
+            cmd.Parameters.AddWithValue("@EmpSueldo", dts.gEmpSueldo)
             cmd.Parameters.AddWithValue("@EmpFechaIngreso", dts.gEmpFechaIngreso)
+            cmd.Parameters.AddWithValue("@TurCodigo", dts.gTurCodigo)
+            cmd.Parameters.AddWithValue("@Orcodigo", dts.gOrcodigo)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else

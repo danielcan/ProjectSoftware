@@ -34,7 +34,7 @@ Public Class fTurno
             cmd = New SqlCommand("sp_iturno")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@TurCodigo", dts.gTurCodigo)
+
             cmd.Parameters.AddWithValue("@TurFecha", dts.gTurFecha)
             cmd.Parameters.AddWithValue("@TurHorarioEntrada", dts.gTurHorarioEntrada)
             cmd.Parameters.AddWithValue("@TurHorarioSalida", dts.gTurHorarioSalida)
@@ -61,7 +61,7 @@ Public Class fTurno
             cmd = New SqlCommand("sp_uturno")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@TurCodigo", dts.gTurCodigo)
+
             cmd.Parameters.AddWithValue("@TurFecha", dts.gTurFecha)
             cmd.Parameters.AddWithValue("@TurHorarioEntrada", dts.gTurHorarioEntrada)
             cmd.Parameters.AddWithValue("@TurHorarioSalida", dts.gTurHorarioSalida)

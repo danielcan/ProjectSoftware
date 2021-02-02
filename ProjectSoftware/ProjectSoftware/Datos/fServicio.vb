@@ -35,7 +35,7 @@ Public Class fServicio
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             cmd.Parameters.AddWithValue("@CliCodigo", dts.gServTipoServicio)
-            cmd.Parameters.AddWithValue("@ServCodigo", dts.gServCodigo)
+
             cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
             cmd.Parameters.AddWithValue("@RecepcionEquipo", dts.gSerDescripcion)
             If cmd.ExecuteNonQuery Then
@@ -60,7 +60,7 @@ Public Class fServicio
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             cmd.Parameters.AddWithValue("@CliCodigo", dts.gServTipoServicio)
-            cmd.Parameters.AddWithValue("@ServCodigo", dts.gServCodigo)
+
             cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
             cmd.Parameters.AddWithValue("@RecepcionEquipo", dts.gSerDescripcion)
             If cmd.ExecuteNonQuery Then

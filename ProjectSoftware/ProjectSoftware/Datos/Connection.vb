@@ -6,11 +6,12 @@ Imports System.Data.SqlClient
 Public Class Connection
 
 
+
 	Protected cnn As New SqlConnection
 
 	Protected Function conexiondb() As Boolean
 		Try
-			cnn = New SqlConnection("Data Source=DESKTOP-P6B53T5\LOCALHOST;initial catalog=electronicaHN;integrated security=True")
+			cnn = New SqlConnection("Data Source=DESKTOP-OQV1GKC\LOCALHOST;initial catalog=ElectronicaHN;integrated security=True")
 			cnn.Open()
 			Return True
 		Catch ex As Exception

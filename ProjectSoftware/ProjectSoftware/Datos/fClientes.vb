@@ -35,7 +35,7 @@ Public Class fClientes
             cmd = New SqlCommand("sp_iclientes")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CliCodigo", dts.gCliCodigo)
+
             cmd.Parameters.AddWithValue("@CliIdentidad", dts.gCliIdentidad)
             cmd.Parameters.AddWithValue("@CliNombreCompleto", dts.gCliNombreCompleto)
             cmd.Parameters.AddWithValue("@CliTelefono", dts.gCliTelefono)
@@ -61,7 +61,7 @@ Public Class fClientes
             cmd = New SqlCommand("sp_uclientes")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CliCodigo", dts.gCliCodigo)
+
             cmd.Parameters.AddWithValue("@CliIdentidad", dts.gCliIdentidad)
             cmd.Parameters.AddWithValue("@CliNombreCompleto", dts.gCliNombreCompleto)
             cmd.Parameters.AddWithValue("@CliTelefono", dts.gCliTelefono)

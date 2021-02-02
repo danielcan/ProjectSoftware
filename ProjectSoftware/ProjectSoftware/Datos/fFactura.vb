@@ -35,7 +35,7 @@ Public Class fFactura
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             cmd.Parameters.AddWithValue("@CliCodigo", dts.gCliCodigo)
-            cmd.Parameters.AddWithValue("@FacCodigo", dts.gFacCodigo)
+
             cmd.Parameters.AddWithValue("@FacSubTotal", dts.gFacSubTotal)
             cmd.Parameters.AddWithValue("@FacTotal", dts.gFacTotal)
             cmd.Parameters.AddWithValue("@EmpCodigo", dts.gEmpCodigo)
@@ -65,7 +65,7 @@ Public Class fFactura
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             cmd.Parameters.AddWithValue("@CliCodigo", dts.gCliCodigo)
-            cmd.Parameters.AddWithValue("@FacCodigo", dts.gFacCodigo)
+
             cmd.Parameters.AddWithValue("@FacSubTotal", dts.gFacSubTotal)
             cmd.Parameters.AddWithValue("@FacTotal", dts.gFacTotal)
             cmd.Parameters.AddWithValue("@EmpCodigo", dts.gEmpCodigo)

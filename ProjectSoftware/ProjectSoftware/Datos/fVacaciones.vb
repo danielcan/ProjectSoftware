@@ -33,7 +33,7 @@ Public Class fVacaciones
             cmd = New SqlCommand("sp_ivacaciones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@VacCodigo", dts.gVacCodigo)
+
             cmd.Parameters.AddWithValue("@VacDiasTomados", dts.gVacDiasTomados)
             cmd.Parameters.AddWithValue("@VacDia", dts.gVacDia)
             cmd.Parameters.AddWithValue("@VacAnio", dts.gVacAnio)
@@ -56,10 +56,10 @@ Public Class fVacaciones
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_ivacaciones")
+            cmd = New SqlCommand("sp_uvacaciones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@VacCodigo", dts.gVacCodigo)
+
             cmd.Parameters.AddWithValue("@VacDiasTomados", dts.gVacDiasTomados)
             cmd.Parameters.AddWithValue("@VacDia", dts.gVacDia)
             cmd.Parameters.AddWithValue("@VacAnio", dts.gVacAnio)

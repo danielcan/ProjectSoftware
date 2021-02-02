@@ -33,7 +33,7 @@ Public Class fCatalogo
             cmd = New SqlCommand("sp_icatalogo")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CatCodigo", dts.gCatCodigo)
+
             cmd.Parameters.AddWithValue("@CatCantidad", dts.gCatCantidad)
             cmd.Parameters.AddWithValue("@CatFecha", dts.gCatFecha)
             cmd.Parameters.AddWithValue("@CatCategorias", dts.gCatCategorias)
@@ -58,7 +58,7 @@ Public Class fCatalogo
             cmd = New SqlCommand("sp_ucatalogo")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@CatCodigo", dts.gCatCodigo)
+
             cmd.Parameters.AddWithValue("@CatCantidad", dts.gCatCantidad)
             cmd.Parameters.AddWithValue("@CatFecha", dts.gCatFecha)
             cmd.Parameters.AddWithValue("@CatCategorias", dts.gCatCategorias)
