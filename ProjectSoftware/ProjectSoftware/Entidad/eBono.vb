@@ -1,4 +1,5 @@
-﻿Public Class eBono
+'hola mundo
+Public Class eBono
 
     Dim BoCodigo, BoPorCentaje, OrCodigo As Integer
     Dim BoFecha As Date
