@@ -1,6 +1,6 @@
 ﻿Public Class eProveedor
-    Dim ProCodigo, ProIdentidad As Integer
-    Dim ProNombre, ProTelefono, ProCelular, ProCorreo As String
+    Dim ProCodigo As Integer
+    Dim ProNombre, ProTelefono, ProCelular, ProCorreo, ProIdentidad As String
 
     Public Property gProCodigo
         Get
@@ -61,7 +61,7 @@
     Public Sub New()
     End Sub
 
-    Public Sub New(ProCodigo As Integer, ProIdentidad As Integer,
+    Public Sub New(ProCodigo As Integer, ProIdentidad As String,
                    ProNombre As String, ProTelefono As String, ProCelular As String, ProCorreo As String)
 
         gProCodigo = ProCodigo

@@ -2,7 +2,7 @@
 Public Class eEmpleados
 
     Dim EmpCodigo, TurCodigo, Orcodigo As Integer
-    Dim EmpNombreCompleto, EmpTelefono, EmpCargo, EmpCorreo, EmpCelular, EmSueldo As String
+    Dim EmpNombre, EmpApellido, EmpTelefono, EmpCargo, EmpDireccion, EmpCorreo, EmpCelular, EmpSueldo As String
     Dim EmpFechaIngreso As Date
 
     Public Property gEmpCodigo
@@ -32,14 +32,24 @@ Public Class eEmpleados
         End Set
     End Property
 
-    Public Property gEmpNombreCompleto
+    Public Property gEmpNombre
         Get
-            Return EmpNombreCompleto
+            Return EmpNombre
         End Get
         Set(value)
-            EmpNombreCompleto = value
+            EmpNombre = value
         End Set
     End Property
+
+    Public Property gEmpApellido
+        Get
+            Return EmpApellido
+        End Get
+        Set(value)
+            EmpApellido = value
+        End Set
+    End Property
+
 
     Public Property gEmpTelefono
         Get
@@ -56,6 +66,15 @@ Public Class eEmpleados
         End Get
         Set(value)
             EmpCargo = value
+        End Set
+    End Property
+
+    Public Property gEmpDireccion
+        Get
+            Return EmpDireccion
+        End Get
+        Set(value)
+            EmpDireccion = value
         End Set
     End Property
 
@@ -77,12 +96,12 @@ Public Class eEmpleados
         End Set
     End Property
 
-    Public Property gEmSueldo
+    Public Property gEmpSueldo
         Get
-            Return EmSueldo
+            Return EmpSueldo
         End Get
         Set(value)
-            EmSueldo = value
+            EmpSueldo = value
         End Set
     End Property
 
@@ -99,18 +118,20 @@ Public Class eEmpleados
     End Sub
 
     Public Sub New(EmpCodigo As Integer, TurCodigo As Integer, Orcodigo As Integer,
-    EmpNombreCompleto As String, EmpTelefono As String, EmpCargo As String,
-    EmpCorreo As String, EmpCelular As String, EmSueldo As String, EmpFechaIngreso As Date)
+    EmpNombreCompleto As String, EmpTelefono As String, EmpCargo As String, EmpDirrecion As String,
+    EmpCorreo As String, EmpApellido As String, EmpCelular As String, EmpSueldo As String, EmpFechaIngreso As Date)
 
         gEmpCodigo = EmpCodigo
         gTurCodigo = TurCodigo
         gOrcodigo = Orcodigo
-        gEmpNombreCompleto = EmpNombreCompleto
+        gEmpNombre = EmpNombre
+        gEmpApellido = EmpApellido
         gEmpTelefono = EmpTelefono
         gEmpCargo = EmpCargo
+        gEmpDireccion = EmpDireccion
         gEmpCorreo = EmpCorreo
         gEmpCelular = EmpCelular
-        gEmSueldo = EmSueldo
+        gEmpSueldo = EmpSueldo
         gEmpFechaIngreso = EmpFechaIngreso
 
     End Sub

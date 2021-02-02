@@ -122,15 +122,15 @@
     <Compile Include="Entidad\eCaja.vb" />
     <Compile Include="Entidad\eCatalogo.vb" />
     <Compile Include="Entidad\eClientes.vb" />
-    <Compile Include="Entidad\eContratro.vb" />
+    <Compile Include="Entidad\eContrato.vb" />
     <Compile Include="Entidad\eDetalleFactura.vb" />
     <Compile Include="Entidad\eEmpleados.vb" />
     <Compile Include="Entidad\eFactura.vb" />
     <Compile Include="Entidad\eOrdenTrabajo.vb" />
     <Compile Include="Entidad\ePedidos.vb" />
     <Compile Include="Entidad\eProveedor.vb" />
+    <Compile Include="Entidad\eRepuesto.vb" />
     <Compile Include="Entidad\eRepuxProve.vb" />
-    <Compile Include="Entidad\eRupuesto.vb" />
     <Compile Include="Entidad\eServicio.vb" />
     <Compile Include="Entidad\eTurno.vb" />
     <Compile Include="Entidad\eVacaciones.vb" />

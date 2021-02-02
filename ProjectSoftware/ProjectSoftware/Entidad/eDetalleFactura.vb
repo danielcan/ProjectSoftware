@@ -1,6 +1,6 @@
 ﻿Public Class eDetalleFactura
 
-    Dim FacCodigo, DFCantidad As String
+    Dim FacCodigo, DFCantidad As Integer
     Dim TipoPago As String
 
     Public Property gFacCodigo

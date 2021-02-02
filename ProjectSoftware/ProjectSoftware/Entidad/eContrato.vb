@@ -1,4 +1,4 @@
-﻿Public Class eContratro
+﻿Public Class eContrato
 
     Dim ConCodigo, Empcodigo As Integer
     Dim ConFecha As Date

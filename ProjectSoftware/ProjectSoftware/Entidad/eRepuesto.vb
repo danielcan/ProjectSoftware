@@ -1,4 +1,4 @@
-﻿Public Class eRupuesto
+﻿Public Class eRepuesto
     Dim ReCodigo, RePrecio As Integer
     Dim ReMarca, ReTraido, ReDescripcion As String
 
