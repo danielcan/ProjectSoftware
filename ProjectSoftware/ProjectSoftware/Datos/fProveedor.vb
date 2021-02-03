@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
-Public Class fPedidos
+
+Public Class fProveedor
 
     Inherits Connection
     Dim cmd As New SqlCommand
@@ -7,7 +8,7 @@ Public Class fPedidos
     Public Function mostrar() As DataTable
         Try
             conexiondb()
-            cmd = New SqlCommand("tbl_mpedido")
+            cmd = New SqlCommand("tbl_mproveedores")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then
@@ -26,17 +27,19 @@ Public Class fPedidos
         End Try
     End Function
 
-    Public Function insertar(dts As ePedidos) As Boolean
+    Public Function insertar(dts As eProveedor) As Boolean
 
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_ipedido")
+            cmd = New SqlCommand("sp_iproveedores")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
-            cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
-            cmd.Parameters.AddWithValue("@PeFecha", dts.gPeFecha)
-            cmd.Parameters.AddWithValue("@PeDescripcion", dts.gPeDescripcion)
+            cmd.Parameters.AddWithValue("@ProNombre", dts.gProNombre)
+            cmd.Parameters.AddWithValue("@ProIdentidad", dts.gProIdentidad)
+            cmd.Parameters.AddWithValue("@ProTelefono", dts.gProTelefono)
+            cmd.Parameters.AddWithValue("@ProCelular", dts.gProCelular)
+            cmd.Parameters.AddWithValue("@ProCorreo", dts.gProCorreo)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -52,18 +55,20 @@ Public Class fPedidos
 
     End Function
 
-    Public Function editar(dts As ePedidos) As Boolean
+    Public Function editar(dts As eProveedor) As Boolean
 
         Try
             conexiondb()
 
-            cmd = New SqlCommand("sp_upedido")
+            cmd = New SqlCommand("sp_uproveedores")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
-            cmd.Parameters.AddWithValue("@OrCodigo", dts.gOrCodigo)
-            cmd.Parameters.AddWithValue("@PeFecha", dts.gPeFecha)
-            cmd.Parameters.AddWithValue("@PeDescripcion", dts.gPeDescripcion)
+            cmd.Parameters.AddWithValue("@ProNombre", dts.gProNombre)
+            cmd.Parameters.AddWithValue("@ProIdentidad", dts.gProIdentidad)
+            cmd.Parameters.AddWithValue("@ProTelefono", dts.gProTelefono)
+            cmd.Parameters.AddWithValue("@ProCelular", dts.gProCelular)
+            cmd.Parameters.AddWithValue("@ProCorreo", dts.gProCorreo)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -81,13 +86,13 @@ Public Class fPedidos
 
     End Function
 
-    Public Function eliminar(dts As ePedidos) As Boolean
+    Public Function eliminar(dts As eProveedor) As Boolean
         Try
             conexiondb()
-            cmd = New SqlCommand("sp_dpedido")
+            cmd = New SqlCommand("sp_dproveedores")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.Add("@PeCodigo", SqlDbType.NVarChar, 50).Value = dts.gPeCodigo
+            cmd.Parameters.Add("@ProCodigo", SqlDbType.NVarChar, 50).Value = dts.gProCodigo
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -101,5 +106,6 @@ Public Class fPedidos
         End Try
 
     End Function
+
 
 End Class
