@@ -1,0 +1,15 @@
+C:\Users\PC-lite\source\repos\proyecto\proyecto\bin\Debug\proyecto.exe.config
+C:\Users\PC-lite\source\repos\proyecto\proyecto\bin\Debug\proyecto.exe
+C:\Users\PC-lite\source\repos\proyecto\proyecto\bin\Debug\proyecto.pdb
+C:\Users\PC-lite\source\repos\proyecto\proyecto\bin\Debug\proyecto.xml
+C:\Users\PC-lite\source\repos\proyecto\proyecto\obj\Debug\proyecto.vbprojAssemblyReference.cache
+C:\Users\PC-lite\source\repos\proyecto\proyecto\obj\Debug\proyecto.Resources.resources
+C:\Users\PC-lite\source\repos\proyecto\proyecto\obj\Debug\proyecto.vbproj.GenerateResource.cache
+C:\Users\PC-lite\source\repos\proyecto\proyecto\obj\Debug\proyecto.vbproj.CoreCompileInputs.cache
+C:\Users\PC-lite\source\repos\proyecto\proyecto\obj\Debug\proyecto.exe
+C:\Users\PC-lite\source\repos\proyecto\proyecto\obj\Debug\proyecto.xml
+C:\Users\PC-lite\source\repos\proyecto\proyecto\obj\Debug\proyecto.pdb
+C:\Users\PC-lite\source\repos\proyecto\proyecto\obj\Debug\proyecto.Form1.resources
+C:\Users\PC-lite\source\repos\proyecto\proyecto\obj\Debug\proyecto.formEmpleados.resources
+C:\Users\PC-lite\source\repos\proyecto\proyecto\obj\Debug\proyecto.Login.resources
+C:\Users\PC-lite\source\repos\proyecto\proyecto\obj\Debug\proyecto.menuAdmin.resources
